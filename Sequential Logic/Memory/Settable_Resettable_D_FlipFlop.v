@@ -21,7 +21,7 @@ module async_reset(
 
 input       clk, reset;
 input       [3:0]d;
-output      [3:0]q;
+output reg  [3:0]q;
 
 always @(posedge clk, posedge reset) begin
     if(reset) q <= 4'b0000;
