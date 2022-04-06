@@ -11,7 +11,8 @@ always @(reset, set) begin
         2'b01: result=1'b1;
         2'b10: result=1'b0;
         2'b11: result=1'bx;
-        2'b00: result=result; // Possible? or Omit
+        //2'b00: result=result; // Possible? or Omit => It is invalid~
+        // we didn't define the output when the "(reset, set)" equals to 2'b00, then the logic will be have a latch
     endcase
 end
     
