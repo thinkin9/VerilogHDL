@@ -43,12 +43,27 @@ always @(ia, ib, func) begin
             else
                 oa= 8'h00;
         4'b1010:
-        if(ia - ib < 0)
-            oa= 8'h01
+            if(ia - ib < 0)
+                oa= 8'h01;
+            else
+                oa= 8'h00;
         4'b1011:
+            oa= ia + ib << 1;
         4'b1100:
+            oa= ia + 4'h4;
         4'b1101:
+            oa= ia - 4'h4;
         4'b1110:
+            if(ia - ib > 0)
+                oa= ia;
+            else
+                oa= 8'h00;
         4'b1111:
+            if(ia - ib < 0)
+                oa= ia;
+            else   
+                oa= 8'h00;
+        default: oa= 8'h00;
     endcase
 end
+endmodule
